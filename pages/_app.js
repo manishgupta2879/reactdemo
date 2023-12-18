@@ -1,5 +1,5 @@
 
-import store from '@/store/store'
+import store, {   persistor } from '@/store/store'
 import '@/styles/globals.css'
 import '@/styles/style.css'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -13,8 +13,10 @@ export default function App({ Component, pageProps }) {
 
   return(
     <Provider store={store}>
+       <PersistGate loading={null} persistor={persistor}>
           <ToastContainer theme='dark' autoClose={2000} />
           <Component {...pageProps} />
+        </PersistGate>
   </Provider>
   )
    
