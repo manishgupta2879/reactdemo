@@ -1,32 +1,46 @@
 import React from 'react';
-import Link from 'next/link';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Image } from 'react-bootstrap';
 
 
-function NavBar() {
-    // const userLoadData = useSelector((state)=>state.user)
+const Navbar  = () =>  {
+ 
+//------------------------------Navbar------------------------------------------------------------
+
   return (
-    
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="container">
-            <Link href="/">
-              My Dash board
-            </Link>
-            <div className="collapse navbar-collapse">
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link href="/dashboard">
-                  Dashboard
-                  </Link>
-                  
-                </li>
-                
-              </ul>
-            </div>
-          </div>
-        </nav>
-    
-  )
-}
+    <nav className="navbar navbar-expand-lg bg-black">
+      <div className="container text-white fs-7">
+       <h1 className='navbar-brand text-white h-2'>Dashboard</h1>
+       
+        <button className="navbar-toggler" type="button" >
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div className={`collapse navbar-collapse`} id="navbarNavDropdown">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item ">
+              <button className="nav-link " type="button">
+                USER PROFILE
+              </button>
+            </li>
+            <li className="nav-item dropdown">
+              <button className="nav-link " type="button" >
+                TASK ASSIGN
+              </button>
+            </li>
+            <li className="nav-item dropdown">
+              <button className="nav-link" type="button" >
+                ORDER DETAIL
+              </button>
+            </li>
+            <li className="nav-item dropdown">
+              <button className="nav-link " type="button" >
+                EMPLOYEYE
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-export default NavBar
+export default Navbar;

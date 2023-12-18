@@ -3,6 +3,8 @@ import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import Sidebar from '@/Components/Basics/NavBar'
+import Dashboard from '@/Components/Dashboard-Compo/dashboard'
 
 function dashboard() {
   return (
@@ -14,7 +16,9 @@ function dashboard() {
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <main className='main-head'>
-     <NavBar /> 
+     <Sidebar /> 
+     <Dashboard/>
+
     </main>
   </>
   )
