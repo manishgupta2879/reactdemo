@@ -61,7 +61,7 @@ const LoginScreen = () => {
       }, [userLoadData])
   return (
     <>
-      {userLoadData?.data == null ? 
+      {userLoadData?.data == null && !userLoadData?.loading ? 
         <div className="login_wrapper">
           <div className="login_box">
               <div className="header"> Please Login to Continue </div>

@@ -23,7 +23,7 @@ const Navbar = () => {
   }, [userFetchData])
   return (
     <>
-      { userFetchData?.data !== null ? 
+      { userFetchData?.data !== null && !userFetchData?.loading ? 
         <nav className="navbar navbar-expand-lg bg-black">
           <div className="container text-white fs-7">
             <h1 className="navbar-brand text-white h-2">Dashboard</h1>
