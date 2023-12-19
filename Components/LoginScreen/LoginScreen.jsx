@@ -9,6 +9,7 @@ import { setCookie } from "cookies-next";
 import {  useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import Loader from '../Basics/Loader';
+// import Loader from '../Basics/Loader';
 
 const LoginScreen = () => {
     const router = useRouter()
