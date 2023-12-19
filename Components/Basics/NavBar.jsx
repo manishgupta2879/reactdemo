@@ -60,7 +60,7 @@ const Navbar = () => {
           <div>
           
             <button className="btn btn-dark" type="button" onClick={handleLogout}>
-              Logout {userFetchData?.data?.first_name}
+              Logout 
             </button>
           </div>
         </nav>
