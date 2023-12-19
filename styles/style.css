@@ -467,8 +467,18 @@
   background: #b03e99;
 }
 
+  /* ------------------------- loader component css -------------------------- */
 
-  
+
+  .loader{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #111827;
+    min-height: 100vh;
+
+  }
   
 
 

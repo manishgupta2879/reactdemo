@@ -10,7 +10,6 @@ import {
 } from "redux-persist";
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-
 import {userReducer} from "./features/User/userReducer";
 
 const persistConfig = {

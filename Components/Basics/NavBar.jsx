@@ -1,7 +1,7 @@
 import React from "react";
 import { Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { userlogout } from "@/store/features/User/userReducer";
+import { userData, userlogout } from "@/store/features/User/userReducer";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
@@ -13,6 +13,8 @@ const Navbar = () => {
     router.push("/");
   };
 
+  const userFetchData = useSelector(userData)
+  console.log("userFetchData",userFetchData)
   //------------------------------Navbar------------------------------------------------------------
 
   return (
@@ -50,8 +52,9 @@ const Navbar = () => {
       </div>
 
       <div>
+      
         <button className="btn btn-dark" type="button" onClick={handleLogout}>
-          Logout
+          Logout {userFetchData?.data?.first_name}
         </button>
       </div>
     </nav>
