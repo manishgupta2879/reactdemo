@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useDispatch , useSelector } from 'react-redux';
-import { userData , signIn , logOutAsync , userFetch , userSuccess , userFail, userlogout } from '@/store/features/User/userReducer';
+import { userData , signIn , logOutAsync , userFetch , userSuccess , userFail , userlogout } from '@/store/features/User/userReducer';
 import { Baseurl } from '@/Utils/Constants';
 import axios from 'axios';
 import { setCookie } from "cookies-next";

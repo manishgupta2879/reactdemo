@@ -3,6 +3,7 @@ import store, {   persistor } from '@/store/store'
 import '@/styles/globals.css'
 import '@/styles/style.css'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
