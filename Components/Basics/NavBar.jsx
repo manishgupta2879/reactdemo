@@ -14,7 +14,6 @@ const Navbar = () => {
   };
 
   const userFetchData = useSelector(userData)
-  console.log("userFetchData",userFetchData)
   //------------------------------Navbar------------------------------------------------------------
 
   return (
