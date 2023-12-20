@@ -47,10 +47,10 @@ function DashBoardCard() {
               {card.subtitle}
             </h6>
             <p className="card-text">{card.text}</p>
-            <a href="#" className="card-link">
+            <a href="/" className="card-link">
               {card.link1}
             </a>
-            <a href="#" className="card-link">
+            <a href="/" className="card-link">
               {card.link2}
             </a>
           </div>

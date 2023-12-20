@@ -20,7 +20,7 @@ export const signIn = createAsyncThunk(
 
       thunkAPI.dispatch(userFetch());
       const response = await axios.post(Baseurl+'users/adminLogin', arg);
-      if(response.data.status == 200){
+      if(response.data.status === 200){
         thunkAPI.dispatch(userSuccess(response.data.data));
         toast.success(response.data.message)
       }else{

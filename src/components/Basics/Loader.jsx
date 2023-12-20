@@ -1,5 +1,5 @@
 import React from 'react';
-import { Circles, ProgressBar } from  'react-loader-spinner';
+import { Circles } from  'react-loader-spinner';
 
 const Loader = () => {
   return (
