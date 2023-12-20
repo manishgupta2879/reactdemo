@@ -1,29 +1,25 @@
 import React, { useEffect } from "react";
-import { Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { userData, userlogout } from "@/store/features/User/userReducer";
-import { useRouter } from "next/router";
-import Loader from "./Loader";
-
+import { userData, userlogout } from "../../store/features/User/userReducer";
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const dispatch = useDispatch();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(userlogout());
-    router.push("/");
+    navigate("/");
   };
 
   const userFetchData = useSelector(userData)
   //------------------------------Navbar------------------------------------------------------------
   useEffect(() => {
-    if(userFetchData.data == null){
-      router.push('/')
+    if(userFetchData.data === null){
+      navigate('/login')
     }
-  }, [userFetchData])
+  }, [userFetchData, navigate])
   return (
     <>
-      { userFetchData?.data !== null && !userFetchData?.loading ? 
         <nav className="navbar navbar-expand-lg bg-black">
           <div className="container text-white fs-7">
             <h1 className="navbar-brand text-white h-2">Dashboard</h1>
@@ -64,8 +60,6 @@ const Navbar = () => {
             </button>
           </div>
         </nav>
-        : <Loader /> 
-      }
     </>
    
   );

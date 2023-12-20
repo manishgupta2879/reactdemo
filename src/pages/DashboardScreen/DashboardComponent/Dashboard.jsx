@@ -1,8 +1,7 @@
 import React from "react";
-import HeadDashboard from "./headdashboard";
+import HeadDashboard from "./HeadDashboard";
 import DashBoardCard from "./DashBoardCard";
 import DashBoardcharts from "./DashBoardcharts";
-import Footer from "../Basics/footer";
 
 export default function Dashboard() {
   return (
@@ -19,7 +18,7 @@ export default function Dashboard() {
 
        {/* ------------------------------------Footer */}
       
-       <Footer/>
+    
        
     </div>
   );

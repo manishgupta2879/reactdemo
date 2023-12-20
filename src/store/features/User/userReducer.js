@@ -1,5 +1,5 @@
 // src/features/counterSlice.js
-import { Baseurl } from '@/Utils/Constants';
+import { Baseurl } from '../../../Utils/Constants';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -24,7 +24,6 @@ export const signIn = createAsyncThunk(
         thunkAPI.dispatch(userSuccess(response.data.data));
         toast.success(response.data.message)
       }else{
-        console.log(response.data)
         thunkAPI.dispatch(userFail("Something went wrong"));
         toast.error(response.data.message)
       }

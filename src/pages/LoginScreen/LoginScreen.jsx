@@ -2,24 +2,22 @@
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch , useSelector } from 'react-redux';
-import { userData , signIn , logOutAsync , userFetch , userSuccess , userFail , userlogout } from '@/store/features/User/userReducer';
-import { Baseurl } from '@/Utils/Constants';
+import { userData , userFetch , userSuccess , userFail } from '../../store/features/User/userReducer';
+import { Baseurl } from '../../Utils/Constants';
 import axios from 'axios';
-import { setCookie } from "cookies-next";
-import {  useRouter } from 'next/router';
 import { toast } from 'react-toastify';
-import Loader from '../Basics/Loader';
+import Loader from '../../components/Basics/Loader';
+import { useNavigate } from 'react-router-dom';
 // import Loader from '../Basics/Loader';
 
 const LoginScreen = () => {
-    const router = useRouter()
+    const navigate = useNavigate();
     const dispatch  = useDispatch()
     const [userForm, setUserForm] = useState({
-    
         email: "",
         password: ""
-        
       });
+      
       const userLoadData = useSelector(userData)
 
       const submitHandler = async (e) => {
@@ -34,12 +32,10 @@ const LoginScreen = () => {
           try {
             dispatch(userFetch())
             const res = await axios.post(Baseurl+ 'users/adminLogin', userForm)
-            if(res.data.status == 200){
+            if(res.data.status === 200){
                 dispatch(userSuccess(res.data.data));
                 toast.success(res.data.message)
-                setCookie("token", userLoadData.token);
-                setCookie("user", userLoadData.id);
-                router.push('/dashboard')
+                navigate('/')
               }else{
                 dispatch(userFail("Something went wrong"));
                 toast.error(res.data.message)
@@ -55,14 +51,15 @@ const LoginScreen = () => {
           }
         }
       };
+
       useEffect(() => {
         if(userLoadData.data !== null){
-          router.push('/dashboard')
+          navigate('/')
         }
-      }, [userLoadData])
+      }, [userLoadData , navigate])
   return (
     <>
-      {userLoadData?.data == null && !userLoadData?.loading ? 
+      {userLoadData?.data === null && !userLoadData?.loading ? 
         <div className="login_wrapper">
           <div className="login_box">
               <div className="header"> Please Login to Continue </div>
