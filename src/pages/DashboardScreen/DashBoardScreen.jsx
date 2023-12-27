@@ -16,7 +16,7 @@ const DashBoardScreen = () => {
         :<>
             <Navbar/>
             <Outlet />
-            <Footer />
+            {/* <Footer /> */}
           </>
         }
         </>

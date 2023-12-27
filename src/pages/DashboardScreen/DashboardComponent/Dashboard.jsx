@@ -2,11 +2,14 @@ import React from "react";
 import HeadDashboard from "./HeadDashboard";
 import DashBoardCard from "./DashBoardCard";
 import DashBoardcharts from "./DashBoardcharts";
+import DashboardMainCard from "./DashboardMainCard";
+import QuestionsSeaction from "./QuestionsSeaction";
+import Footer from "../../../components/Basics/Footer";
+
 
 export default function Dashboard() {
   return (
     <div>
-
       {/*----------------------------- Head Of Dashboard -------------------------------------- */}
       <HeadDashboard />
 
@@ -15,8 +18,18 @@ export default function Dashboard() {
 
        {/*----------------------------- Charts Of Dashboard -------------------------------------- */}
        <DashBoardcharts/>
+ 
+ 
+       {/*----------------------------- Charts Of Dashboard -------------------------------------- */}
+       <DashboardMainCard/> 
+       
+       
+       {/*----------------------------- Query Seactions Of Dashboard -------------------------------------- */}
+       <QuestionsSeaction/>
 
-       {/* ------------------------------------Footer */}
+        {/* ------------------------------------Footer */}
+
+        <Footer/>
       
     
        
