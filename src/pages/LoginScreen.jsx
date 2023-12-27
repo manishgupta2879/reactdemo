@@ -5,6 +5,7 @@ import {
   userFetch,
   userSuccess,
   userFail,
+  signInWithGoogle,
 } from "../store/features/User/userReducer";
 import { Baseurl } from "../Utils/Constants";
 import axios from "axios";
@@ -54,6 +55,10 @@ const LoginScreen = () => {
     }
   };
 
+  const handleGoogleLogin = () =>{
+      dispatch(signInWithGoogle())
+  }
+
   // useEffect(() => {
   //   // if(userLoadData.data !== null){
   //   //   navigate('/')
@@ -99,7 +104,7 @@ const LoginScreen = () => {
             <div className="flex gap-2 mt-4">
               <a
                 className="inline-flex justify-center items-center cursor-pointer border border-[#dee2e6] rounded-[10px] w-full transition-all duration-[0.2s] ease-in-out delay-0 px-3 py-[6px] hover:bg-[#d8d8d8]"
-                href="#"
+                onClick={()=>{handleGoogleLogin()}}
               >
                 <img
                   className="w-[17px] h-[17px] m-auto"

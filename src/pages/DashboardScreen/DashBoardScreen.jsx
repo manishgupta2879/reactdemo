@@ -9,9 +9,10 @@ import Footer from '../../components/Basics/Footer';
 const DashBoardScreen = () => {
 
     const userFetchingData = useSelector(userData);
+    console.log("userFetchingData",userFetchingData)
   return (
     <>
-        {userFetchingData?.data === null && !userFetchingData?.loading 
+        {userFetchingData?.data === null && userFetchingData?.loading 
         ?<Loader /> //Display loader if data is still loading.
         :<>
             <Navbar/>

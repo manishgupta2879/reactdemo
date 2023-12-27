@@ -1,1 +1,1 @@
-export const Baseurl = 'http://campaigns.cybermatrixsolutions.com/saloonbackend/api/';
+export const Baseurl = 'https://dev.revaltronics.com';

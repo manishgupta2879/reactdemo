@@ -17,12 +17,13 @@ import LoginScreen from './pages/LoginScreen';
 function App() {
   const user = useSelector(userData);
   const router = createBrowserRouter([
-    {path: '/', element: user.data !== null ? <DashBoardScreen/> : <LoginScreen/> , errorElement: <ErrorElement />,
+    {path: '/', element:  <DashBoardScreen/> , errorElement: <ErrorElement />,
       children :[
         {index: true, element: <Dashboard />},
       ]
     },
     {path: '/login', element: <LoginScreen/> , errorElement: <ErrorElement />,},
+    // {path: '/', element: <DashBoardScreen/> , errorElement: <ErrorElement />,},
     
   ]);
 

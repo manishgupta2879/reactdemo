@@ -13,11 +13,11 @@ const Navbar = () => {
 
   const userFetchData = useSelector(userData);
   //------------------------------Navbar------------------------------------------------------------
-  useEffect(() => {
-    if (userFetchData.data === null) {
-      navigate("/login");
-    }
-  }, [userFetchData, navigate]);
+  // useEffect(() => {
+  //   if (userFetchData.data === null) {
+  //     navigate("/login");
+  //   }
+  // }, [userFetchData, navigate]);
   return (
       <>
         <div className="bg-[#fafafa] border-b border-[#eaeaea] p-2 text-[14px] font-bold text-center">
