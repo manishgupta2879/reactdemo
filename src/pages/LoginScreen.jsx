@@ -14,6 +14,7 @@ import Loader from "../components/Basics/Loader";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Basics/NavBar";
 import Footer from "../components/Basics/Footer";
+import Otp from "../components/Basics/Otp";
 // import Loader from '../Basics/Loader';
 
 const LoginScreen = () => {
@@ -55,9 +56,9 @@ const LoginScreen = () => {
     }
   };
 
-  const handleGoogleLogin = () =>{
-      dispatch(signInWithGoogle())
-  }
+  const handleGoogleLogin = () => {
+    dispatch(signInWithGoogle());
+  };
 
   // useEffect(() => {
   //   // if(userLoadData.data !== null){
@@ -66,7 +67,13 @@ const LoginScreen = () => {
   // }, [userLoadData, navigate]);
   return (
     <>
-    <Navbar/>
+      {/* Here Is Navbar */}
+      <Navbar />
+
+      {/* login page  */}
+
+      
+
       <section className="flex flex-col md:flex-row w-full  p-[10%] max-w-[1000px] m-auto md:pt-[90px]  md:pb-3 md:px-0 text-center">
         {/* left */}
         <div className="py-5 pr-5 xm:border-r xm:border-[hsla(0,0%,82%,.7)] xm:py-5 xm:pr-[60px] text-center mx-auto">
@@ -95,7 +102,7 @@ const LoginScreen = () => {
                 aria-label="email"
               />
             </div>
-            <button className="w-full bg-[#0d6efd] text-white mt-2 cursor-not-allowed opacity-30 px-3 py-[6px] text-[16px] font-normal border rounded-[6px]">
+            <button className="w-full bg-[#0d6efd] text-white mt-2 px-3 py-[6px] text-[16px] font-normal border rounded-[6px]">
               Email Me Login Link
             </button>
             <div className="w-[75%] flex items-center text-[12px] text-[#868686] text-center mt-4 mx-auto empty:before:-mr-[.25em] before:*: before:border-b before:border-[#bfbfbf] before:flex-1 empty:after:ml-[.25em] after:*: after:border-b after:border-[#bfbfbf] after:flex-1">
@@ -104,7 +111,9 @@ const LoginScreen = () => {
             <div className="flex gap-2 mt-4">
               <a
                 className="inline-flex justify-center items-center cursor-pointer border border-[#dee2e6] rounded-[10px] w-full transition-all duration-[0.2s] ease-in-out delay-0 px-3 py-[6px] hover:bg-[#d8d8d8]"
-                onClick={()=>{handleGoogleLogin()}}
+                onClick={() => {
+                  handleGoogleLogin();
+                }}
               >
                 <img
                   className="w-[17px] h-[17px] m-auto"
@@ -597,7 +606,14 @@ const LoginScreen = () => {
           </div>
         </a>
       </section>
-      <Footer/>
+
+ {/* Otp  */}
+
+ <Otp />
+      
+
+      {/* Footer  */}
+      <Footer />
     </>
   );
 };

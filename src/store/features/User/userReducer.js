@@ -47,6 +47,7 @@ export const logOutAsync = createAsyncThunk(
           thunkAPI.dispatch(userFetch());
           thunkAPI.dispatch(userlogout());
           
+          
       } catch (error) {
         toast.success("User logut")
       }

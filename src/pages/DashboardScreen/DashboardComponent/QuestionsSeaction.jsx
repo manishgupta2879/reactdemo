@@ -3,7 +3,7 @@ import React from 'react'
 function QuestionsSeaction() {
   return (
     <>
-    <>
+    
   {/* ask question */}
   <section className="max-w-[1100px] mx-auto block mt-[90px] p-[25px] lg:mt-[120px] text-center">
     <div className="max-w-[800px] mx-auto ">
@@ -476,8 +476,6 @@ function QuestionsSeaction() {
       </div>
     </div>
   </section>
-</>
-
     </>
   )
 }
