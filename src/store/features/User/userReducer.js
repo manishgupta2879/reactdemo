@@ -5,6 +5,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { auth } from '../../../firebase/firebase';
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+// import { useNavigate } from "react-router-dom";
 
 
 const INITIAL_STATE = {
@@ -24,7 +25,7 @@ export const signIn = createAsyncThunk(
 
       thunkAPI.dispatch(userFetch());
       const response = await axios.post(Baseurl+'users/adminLogin', arg);
-      if(response.data.status === 200){
+      if(response.data.status === 'status'){
         thunkAPI.dispatch(userSuccess(response.data.data));
         toast.success(response.data.message)
       }else{
@@ -39,6 +40,29 @@ export const signIn = createAsyncThunk(
   }
 )
 
+export const verifyOtp = createAsyncThunk(
+  "user/verify",
+  async (arg, thunkAPI) => {
+    debugger
+     try {
+
+      thunkAPI.dispatch(userFetch());
+      const response = await axios.post(Baseurl+'/api/auth/login', arg);
+      if(response.data.status === 'success'){
+        thunkAPI.dispatch(userSuccess(response.data.data));
+        toast.success(response.data.message)
+      }else{
+        thunkAPI.dispatch(userFail("Something went wrong"));
+        toast.error(response.data.message)
+      }
+     } catch (error) {
+      console.log("error", error)
+      thunkAPI.dispatch(userFail("Something went wrong"));
+      toast.error("verification failed")
+     }
+  }
+)
+
 // Sign out
 export const logOutAsync = createAsyncThunk(
   'user/logOut',
@@ -46,8 +70,7 @@ export const logOutAsync = createAsyncThunk(
       try {
           thunkAPI.dispatch(userFetch());
           thunkAPI.dispatch(userlogout());
-          
-          
+            
       } catch (error) {
         toast.success("User logut")
       }
@@ -83,6 +106,8 @@ export const signInWithGoogle = createAsyncThunk(
       if(res.data.status === 'success'){
         toast.success(res.data.message)
         thunkAPI.dispatch(setTempData(currentUser))
+        // // const navigate = useNavigate()
+        // navigate('/')
       }
     } catch (error) {
       console.log("error google", error)
@@ -115,7 +140,9 @@ const userSLice = createSlice({
 
     userSuccess: (state, action) => {
       state.loading = false
-      state.data = action.payload
+      state.data = action.payload.user
+      state.token = action.payload.token
+      state.tempdata = null
       state.isError = false
       state.error = ""
     },

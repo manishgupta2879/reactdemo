@@ -10,6 +10,8 @@ import ErrorElement from './components/ErrorElement';
 import Dashboard from './pages/DashboardScreen/DashboardComponent/Dashboard';
 import DashBoardScreen from './pages/DashboardScreen/DashBoardScreen';
 import LoginScreen from './pages/LoginScreen';
+import Otp from './pages/Otp';
+import Home from './pages/Home';
 
 
 
@@ -23,7 +25,8 @@ function App() {
       ]
     },
     {path: '/login', element: <LoginScreen/> , errorElement: <ErrorElement />,},
-    // {path: '/', element: <DashBoardScreen/> , errorElement: <ErrorElement />,},
+    {path: '/otp', element: <Otp/> , errorElement: <ErrorElement />,},
+    {path: '/home', element: <Home/> , errorElement: <ErrorElement />,},
     
   ]);
 

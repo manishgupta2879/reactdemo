@@ -14,7 +14,7 @@ import Loader from "../components/Basics/Loader";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Basics/NavBar";
 import Footer from "../components/Basics/Footer";
-import Otp from "../components/Basics/Otp";
+import Otp from "./Otp";
 // import Loader from '../Basics/Loader';
 
 const LoginScreen = () => {
@@ -56,9 +56,17 @@ const LoginScreen = () => {
     }
   };
 
-  const handleGoogleLogin = () => {
+  const handleGoogleLogin = async() => {
     dispatch(signInWithGoogle());
+    navigate('/otp')
   };
+
+  useEffect(() => {
+    // This effect will run when the user state changes
+    if (userLoadData.tempdata !== null) {
+      navigate('/otp'); // Navigate to home page
+    }
+  }, [userLoadData, navigate]);
 
   // useEffect(() => {
   //   // if(userLoadData.data !== null){
@@ -609,7 +617,7 @@ const LoginScreen = () => {
 
  {/* Otp  */}
 
- <Otp />
+    {/* <Otp /> */}
       
 
       {/* Footer  */}
