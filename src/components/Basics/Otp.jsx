@@ -13,7 +13,7 @@ function Otp() {
   return (
     <div>
       <div
-        className="flex flex-col justify-center items-center w-1/2 gap-[15px] bg-red m-auto p-5 rounded-[20px] border border-[#f1f1f1f1] text-center"
+        className="flex flex-col justify-center items-center w-1/2 gap-[15px] bg-white m-auto p-5 rounded-[20px] border border-[#f1f1f1f1] text-center"
         style={{ boxShadow: "0 2px 50px rgba(0,0,0,.12)" }}
       >
         <h5 className="text-[20px] font-medium leading-[1.2] mb-2 text-center">
