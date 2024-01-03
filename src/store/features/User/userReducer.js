@@ -1,12 +1,10 @@
 // src/features/counterSlice.js
-import { Baseurl } from '../../../Utils/Constants';
+import { Baseurl, LOCAL_USER, getData, setData } from '../../../Utils/Constants';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { auth } from '../../../firebase/firebase';
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-// import { useNavigate } from "react-router-dom";
-
 
 const INITIAL_STATE = {
     loading: false,
@@ -20,7 +18,6 @@ const INITIAL_STATE = {
 export const signIn = createAsyncThunk(
   "user/signIn",
   async (arg, thunkAPI) => {
-    debugger
      try {
 
       thunkAPI.dispatch(userFetch());
@@ -43,7 +40,6 @@ export const signIn = createAsyncThunk(
 export const verifyOtp = createAsyncThunk(
   "user/verify",
   async (arg, thunkAPI) => {
-    debugger
      try {
 
       thunkAPI.dispatch(userFetch());
@@ -102,12 +98,31 @@ export const signInWithGoogle = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       }
-      const res = await axios.post(`${Baseurl}/api/auth/send-otp`, {email: currentUser.email})
+      const res = await axios.post(`${Baseurl}/api/auth/send-otp`, {email: currentUser.email}, config)
       if(res.data.status === 'success'){
         toast.success(res.data.message)
         thunkAPI.dispatch(setTempData(currentUser))
-        // // const navigate = useNavigate()
-        // navigate('/')
+      }
+    } catch (error) {
+      console.log("error google", error)
+      toast.error(error.response.data.message)
+      thunkAPI.dispatch(userFail(error.response.data.message))
+    }
+  }
+)
+
+export const sendOtp = createAsyncThunk(
+  "user/sentOtp",
+  async (arg, thunkAPI) => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+      const res = await axios.post(`${Baseurl}/api/auth/send-otp`, arg, config)
+      if(res.data.status === 'success'){
+        toast.success(res.data.message)
       }
     } catch (error) {
       console.log("error google", error)
@@ -138,6 +153,11 @@ const userSLice = createSlice({
       state.loading = true
     },
 
+    refreshUser: (state) => {
+      state.data = getData(LOCAL_USER) ? JSON.parse(getData(LOCAL_USER)) : null;
+      state.token = getData('file_token') ? JSON.parse(getData('file_token')) : null;
+    },
+
     userSuccess: (state, action) => {
       state.loading = false
       state.data = action.payload.user
@@ -145,6 +165,8 @@ const userSLice = createSlice({
       state.tempdata = null
       state.isError = false
       state.error = ""
+      setData(LOCAL_USER, JSON.stringify(action.payload.user))
+      setData('file_token', JSON.stringify(action.payload.token))
     },
 
       userFail: (state, action) => {
@@ -181,5 +203,5 @@ const userSLice = createSlice({
 });
 
 export const userReducer = userSLice.reducer;
-export const { userFetch , userSuccess , userFail, userlogout, setTempData ,setToken} = userSLice.actions;
+export const { userFetch , userSuccess , userFail, userlogout, setTempData ,setToken, refreshUser} = userSLice.actions;
 export const userData = (state) => state.user;

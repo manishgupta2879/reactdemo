@@ -1,11 +1,12 @@
 import React from 'react'
-
+import { useOutletContext } from "react-router-dom";
 function DashboardMainCard() {
+  
+  
+  const contect = useOutletContext();
+  console.log("contect",contect) 
   return (
-  <>
-  <>
-  {/* pricing */}
-  <section className=" relative max-width-[1040px] mt-[150px] mx-auto mb-12 pe-12 ps-12 text-center">
+  <section className="z-[-1] relative max-width-[1040px] mt-[150px] mx-auto mb-12 pe-12 ps-12 text-center" ref={contect}>
     <div className="relative inline-flex rounded-[6px]">
       <button className="py-1 px-2 border border-[#212529] hover:bg-[#212529] hover:text-white rounded-l-[4px] text-[14px]">
         Monthly
@@ -1229,9 +1230,6 @@ function DashboardMainCard() {
       </button>
     </div>
   </section>
-</>
-
-  </>
   )
 }
 

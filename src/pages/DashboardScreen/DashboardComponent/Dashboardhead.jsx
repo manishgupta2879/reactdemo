@@ -145,7 +145,7 @@ function Dashboardhead() {
                     <span className="text-[#BDBDBD] text-[14px] cursor-pointer text-center">
                       Drag &amp; drop zip or <br /> single file here
                     </span>
-                    <button className="block mt-3 ps-4 pe-4 py-[6px] px-[1.6rem] w-[200px] border-2 border-[#ab65d0] bg-[#ab65d0] text-[#fff] rounded-[5px] hover:bg-transparent hover:text-[#bc67ec]">
+                    <button className="block mt-3 ps-4 pe-4 py-[6px] px-[1.6rem] w-[200px] border-2 border-[#4f93f8] bg-[#4f93f8] text-[#fff] rounded-[5px] hover:bg-transparent">
                       Upload file
                     </button>
                   </div>
@@ -167,8 +167,8 @@ function Dashboardhead() {
         <a href="https://policies.google.com/terms">Terms of Service</a>apply.
       </div>
     </div>
-    <div className="hidden xl:block text-[ #914ab5] flex-grow-0 text-2xl mt-[100px] mr-auto text-left w-[300px] md-block">
-      <div className="mb-3 ml-[100px] text-[24px] text-[#914ab5] font-Indie text-left">
+    <div className="hidden xl:block text-[gradient-to-r from-sky-400 to-indigo-600] flex-grow-0 text-2xl mt-[100px] mr-auto text-left w-[300px] md-block">
+      <div className="mb-3 ml-[100px] text-[24px] text-gradient-to-r from-sky-400 to-indigo-600 font-Indie text-left">
         Try for free
       </div>
       <img className="h-[90px]" src="./img/errow.png" alt="" />

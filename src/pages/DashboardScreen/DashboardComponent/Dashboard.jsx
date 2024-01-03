@@ -5,9 +5,11 @@ import DashBoardcharts from "./DashBoardcharts";
 import DashboardMainCard from "./DashboardMainCard";
 import QuestionsSeaction from "./QuestionsSeaction";
 import Footer from "../../../components/Basics/Footer";
+import WithUser from "../../../hoc/withUser";
 
 
-export default function Dashboard() {
+function Dashboard() {
+ 
   return (
     <div>
       {/*----------------------------- Head Of Dashboard -------------------------------------- */}
@@ -36,3 +38,7 @@ export default function Dashboard() {
     </div>
   );
 }
+
+const ProtectedDashboardWrapper = WithUser(Dashboard);
+export default ProtectedDashboardWrapper;
+

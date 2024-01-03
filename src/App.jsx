@@ -17,7 +17,6 @@ import Home from './pages/Home';
 
 
 function App() {
-  const user = useSelector(userData);
   const router = createBrowserRouter([
     {path: '/', element:  <DashBoardScreen/> , errorElement: <ErrorElement />,
       children :[

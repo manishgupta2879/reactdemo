@@ -1,16 +1,9 @@
 import React from 'react';
 
 function Footer() {
-  const footerStyle = {
-    color: 'white',
-    fontSize: '18px',
-    textAlign: 'center',
-  };
 
   return (
-    <>
-    <>
-  {/* footer */}
+
   <footer className="pt-5 pb-[50px] bg-[#111827] w-full text-center">
     <div className="">
       <div className="flex flex-col-reverse justify-between  gap-6 max-w-[1300px] w-[80%] mx-auto my-[72px] md:flex-row overflow-x-auto">
@@ -190,9 +183,6 @@ function Footer() {
       </div>
     </div>
   </footer>
-</>
-
-    </>
   );
 }
 

@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 function DashBoardcharts() {
  
   return (
-   <>
-   <>
-  {/* sales & marketing */}
   <section className="max-w-[1075px] mx-auto grid xs:grid-cols-[1fr] gap-20 w-full my-[50px] p-[25px] text-center grid-cols-[1fr,2fr] tab:my-[30px] tab:w-[90%] xl:w-[70%] xl:my-[50px]">
     <div className="flex flex-col justify-between gap-9  w-full tab:p-0">
       <div
@@ -220,9 +216,6 @@ function DashBoardcharts() {
       </div>
     </div>
   </section>
-</>
-
-   </>
   );
 }
 

@@ -10,13 +10,9 @@ import {
 import { Baseurl } from "../Utils/Constants";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Loader from "../components/Basics/Loader";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Basics/NavBar";
 import Footer from "../components/Basics/Footer";
-import Otp from "./Otp";
-// import Loader from '../Basics/Loader';
-
 const LoginScreen = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -27,6 +23,8 @@ const LoginScreen = () => {
 
   const userLoadData = useSelector(userData);
 
+  
+  // to be use in future for custom login 
   const submitHandler = async (e) => {
     e.preventDefault();
     if (userForm.email === "") {
@@ -63,25 +61,20 @@ const LoginScreen = () => {
 
   useEffect(() => {
     // This effect will run when the user state changes
-    if (userLoadData.tempdata !== null) {
+    if (userLoadData.tempdata !== null && userLoadData.data == null) {
       navigate('/otp'); // Navigate to home page
+    }else if(userLoadData.data !== null){
+      navigate('/home')
     }
   }, [userLoadData, navigate]);
 
-  // useEffect(() => {
-  //   // if(userLoadData.data !== null){
-  //   //   navigate('/')
-  //   // }
-  // }, [userLoadData, navigate]);
+ 
   return (
     <>
       {/* Here Is Navbar */}
       <Navbar />
 
       {/* login page  */}
-
-      
-
       <section className="flex flex-col md:flex-row w-full  p-[10%] max-w-[1000px] m-auto md:pt-[90px]  md:pb-3 md:px-0 text-center">
         {/* left */}
         <div className="py-5 pr-5 xm:border-r xm:border-[hsla(0,0%,82%,.7)] xm:py-5 xm:pr-[60px] text-center mx-auto">
