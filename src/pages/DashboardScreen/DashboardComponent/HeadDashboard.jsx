@@ -173,7 +173,7 @@ const Headdashboard = () => {
 														<input className='hidden' type='file' id='filehost'
 															accept=".html,.htm,.zip,application/zip,application/x-zip,application/x-zip-compressed"
 															onChange={handleFileChange} />
-														<label htmlFor='filehost' className="block mt-3 ps-4 pe-4 py-[6px] px-[1.6rem] w-[200px] border-2 border-gradient-to-r from-sky-400 to-indigo-600 bg-gradient-to-r from-sky-400 to-indigo-600 text-[#fff] rounded-[5px] hover:bg-transparent">
+														<label htmlFor='filehost' className="block mt-3 ps-4 pe-4 py-[6px] px-[1.6rem] w-[200px] border-2 border-gradient-to-r from-sky-400 to-indigo-600 bg-gradient-to-r text-[#fff] rounded-[5px] hover:bg-transparent">
 															Upload file
 														</label>
 													</div>
@@ -200,7 +200,7 @@ const Headdashboard = () => {
 															{filehost?.name}
 														</span>
 
-														<button onClick={removeFile} className="block mt-3 ps-4 pe-4 py-[6px] px-[1.6rem] w-[200px] border-2 border-gradient-to-r from-sky-400 to-indigo-600 bg-gradient-to-r from-sky-400 to-indigo-600 text-[#fff] rounded-[5px] hover:bg-transparent">
+														<button onClick={removeFile} className="block mt-3 ps-4 pe-4 py-[6px] px-[1.6rem] w-[200px] border-2 border-gradient-to-r from-sky-400 to-indigo-600 bg-gradient-to-r text-[#fff] rounded-[5px] hover:bg-transparent">
 															Remove File
 														</button>
 														<div className="flex gap-2 mt-4">

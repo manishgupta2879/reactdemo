@@ -182,7 +182,7 @@ const UploadModal = ({handleClose , openModel}) => {
                                             <input className='hidden' type='file' id='filehost'
                                                 accept=".html,.htm,.zip,application/zip,application/x-zip,application/x-zip-compressed"
                                                 onChange={handleFileChange} />
-                                            <label htmlFor='filehost' className="block mt-3 ps-4 pe-4 py-[6px] px-[1.6rem] w-[200px] border-2 border-[#4f93f8] bg-gradient-to-r from-sky-400 to-indigo-600 text-[#fff] rounded-[5px] hover:bg-gradient-to-r from-sky-400 to-indigo-600 ">
+                                            <label htmlFor='filehost' className="block mt-3 ps-4 pe-4 py-[6px] px-[1.6rem] w-[200px] border-2 border-[#4f93f8] bg-gradient-to-r from-sky-400 to-indigo-600 text-[#fff] rounded-[5px] hover:bg-gradient-to-r ">
                                                 Upload file
                                             </label>
                                         </div>
